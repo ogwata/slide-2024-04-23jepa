@@ -1,0 +1,15 @@
+{
+  "name": "slide-20240423jepa",
+  "description": "slide-2024-04-23jepa",
+  "version": "0.0.0",
+  "author": "OGATA Katsuhiro <ogwata@vivliostyle.org>",
+  "scripts": {
+    "build": "vivliostyle build",
+    "preview": "vivliostyle preview"
+  },
+  "dependencies": {
+    "@vivliostyle/cli": "latest"
+  },
+  "license": "CC0-1.0",
+  "private": true
+}
