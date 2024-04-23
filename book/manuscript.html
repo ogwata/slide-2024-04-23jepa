@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>各社のEPUBリーダーは、現行CSS仕様やアクセシビリティをどれだけサポートしているのか？</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Katsuhiro Ogata">
+    <link rel="stylesheet" type="text/css" href="themes/theme.css">
+  </head>
+  <body>
+    <section class="level1" aria-labelledby="各社のepubリーダーは現行css仕様やアクセシビリティをどれだけサポートしているのか">
+      <h1 id="各社のepubリーダーは現行css仕様やアクセシビリティをどれだけサポートしているのか">各社のEPUBリーダーは、<br>現行CSS仕様やアクセシビリティを<br>どれだけサポートしているのか？</h1>
+      <p>小形克宏<br>2024年4月24日<br>JAGAT 次世代パブリッシング研究会<br>（Vivliostyle Foundation）</p>
+    </section>
+    <section class="level1" aria-labelledby="次世代パブリッシング研究会のご紹介">
+      <h1 id="次世代パブリッシング研究会のご紹介">次世代パブリッシング研究会のご紹介①</h1>
+      <ul>
+        <li>JAGAT（日本印刷技術協会）の研究会</li>
+        <li>JAGATさんの会議室を借りて運営している、自主的な勉強会（月1回）</li>
+        <li>創設は2010年くらい</li>
+        <li>2022年に「XMLパブリッシング（準）研究会」から改称</li>
+        <li>テーマは「コンピュータ、印刷、出版」</li>
+        <li>活動内容は「作ってみる系」と「調べてみる系」</li>
+      </ul>
+    </section>
+    <section class="level1" aria-labelledby="次世代パブリッシング研究会のご紹介-1">
+      <h1 id="次世代パブリッシング研究会のご紹介-1">次世代パブリッシング研究会のご紹介②</h1>
+      <ul>
+        <li>いつもは<a href="https://discord.gg/DXK3TPZT">Discord: jagat-xpub</a>でコミュニケーション</li>
+        <li><a href="https://www.facebook.com/groups/288790814553206">Facebook: JAGAT 次世代パブリッシング研究会</a></li>
+        <li>現在活動中のメンバーは6名</li>
+        <li>コロナによる会員減から立ち直れない現状が課題</li>
+        <li>一緒に活動する人、大募集❗</li>
+        <li>ただ今、今年の活動内容を検討中</li>
+        <li>5月24日「市谷の杜 本と活字館」に遠足の予定😊</li>
+      </ul>
+    </section>
+    <section class="level1" aria-labelledby="次世代パブリッシング研究会のご紹介-2">
+      <h1 id="次世代パブリッシング研究会のご紹介-2">次世代パブリッシング研究会のご紹介③</h1>
+      <ul>
+        <li>入会希望者は以下の方法で！
+          <ul>
+            <li><a href="https://discord.gg/DXK3TPZT">Discord: jagat-xpub招待リンク</a></li>
+            <li><a href="mailto:fantastikk.2010@gmail.com">研究会のアドレス（fantastikk.2010@gmail.com）</a>にメールを出す</li>
+            <li><a href="https://www.facebook.com/groups/288790814553206">Facebook: JAGAT 次世代パブリッシング研究会</a>に参加する</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section class="level1" aria-labelledby="epubリーダー表示テスト報告書2023年度">
+      <h1 id="epubリーダー表示テスト報告書2023年度">EPUBリーダー表示テスト報告書（2023年度）</h1>
+      <ul>
+        <li>報告書制作リポジトリ（GitHub）
+          <ul>
+            <li><a href="https://github.com/jagat-xpub/viewer-test-2023?tab=readme-ov-file">EPUBリーダー表示テスト報告書（2023年度）</a></li>
+          </ul>
+        </li>
+        <li>テストファイル開発リポジトリ（GitHub）
+          <ul>
+            <li><a href="https://github.com/jagat-xpub/epub-css-test/tree/main">EPUBリーダーのCSS仕様適合性テスト</a></li>
+          </ul>
+        </li>
+        <li>テスト結果（Googleスプレッドシート）
+          <ul>
+            <li><a href="https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vSPaWWfqx2bZiRqK__XG_v_NEGY5OjB-lIcoG9Ll_D1aG5UA7RwpUi3dOq4fLTt40flSuFGhu38Iv7o/pubhtml#">EPUBリーダー表示チェック（JAGAT次世代パブリッシング研究会）2023公開用</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section class="level1" aria-labelledby="css表示テストの目的">
+      <h1 id="css表示テストの目的">CSS表示テストの目的</h1>
+      <ul>
+        <li>EPUB 3.3では最新CSSモジュールのセット <a href="https://www.w3.org/TR/CSS/">“CSS Snapshot”</a> の実装を義務づけている
+          <ul>
+            <li><strong>テーマ①</strong>：現在日本国内で利用されているEPUBリーダーは、“CSS Snapshot” をどのくらいサポートしているのか</li>
+          </ul>
+        </li>
+        <li>EPUB 3.3では-epub-接頭辞なしで縦書き用プロパティを書くことを推奨
+          <ul>
+            <li><strong>テーマ②</strong>：現在使われているEPUBリーダーは、本当に-epub-接頭辞なしで表示できるのか</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section class="level1" aria-labelledby="css-snapshotとは">
+      <h1 id="css-snapshotとは">“CSS Snapshot”とは？</h1>
+      <ul>
+        <li>W3CでCSS仕様を作成しているCSS WGが作成</li>
+        <li>CSSモジュールを、機能の安定性の程度によって評価・分類したリスト
+          <ol>
+            <li>CSSの公式的な定義に含まれるCSSモジュール：<strong>82項目</strong></li>
+            <li>かなり安定しているが実装経験が限定的なCSSモジュール：<strong>25項目</strong></li>
+            <li>大まかな相互運用性のあるCSSモジュール：<strong>3項目</strong></li>
+            <li>CSS Snapshot 2023に載っていないが最新のブラウザで利用できるCSSモジュール：<strong>3項目</strong></li>
+          </ol>
+        </li>
+        <li>そのうち、報告書には上記1.だけを掲載</li>
+        <li>それ以外の結果はGoogleスプレッドシートを参照</li>
+      </ul>
+    </section>
+    <section class="level1" aria-labelledby="css表示テストの方法">
+      <h1 id="css表示テストの方法">CSS表示テストの方法</h1>
+      <ul>
+        <li>対応の可否が一目で識別できる<a href="https://github.com/jagat-xpub/epub-css-test/tree/main">テスト用EPUBファイル</a>を制作</li>
+        <li>当研究会のメンバーごとに割り振って各自がテスト</li>
+        <li>その結果を以下のGoogleスプレッドシートに記入
+          <ul>
+            <li><a href="https://docs.google.com/spreadsheets/u/1/d/e/2PACX-1vSPaWWfqx2bZiRqK__XG_v_NEGY5OjB-lIcoG9Ll_D1aG5UA7RwpUi3dOq4fLTt40flSuFGhu38Iv7o/pubhtml#">EPUBリーダー表示チェック（JAGAT次世代パブリッシング研究会）2023公開用</a></li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section class="level1" aria-labelledby="css表示テストの結果村上へ">
+      <h1 id="css表示テストの結果村上へ">CSS表示テストの結果（村上）へ→</h1>
+    </section>
+    <section class="level1" aria-labelledby="本テストの成果">
+      <h1 id="本テストの成果">本テストの成果①</h1>
+      <ul>
+        <li>現在使われているEPUBリーダーのレイアウトエンジンは、モダンブラウザー系と独自エンジン系の2種に分かれる</li>
+        <li>この2種のレイアウトエンジンは互いに開発方針が大きく異なる</li>
+      </ul>
+    </section>
+    <section class="level1" aria-labelledby="本テストの成果-1">
+      <h1 id="本テストの成果-1">本テストの成果②</h1>
+      <ul>
+        <li>モダンブラウザー系リーダーは、おおむね “CSS Snapshot” をサポート
+          <ul>
+            <li>EPUB 3.3が規定したCSSの要件を満たしている</li>
+          </ul>
+        </li>
+        <li>独自エンジン系リーダーは “CSS Snapshot” をサポートはきわめて貧弱
+          <ul>
+            <li>EPUB 3.3が規定したCSSの要件を満たしていない</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+    <section class="level1" aria-labelledby="本テストの成果-2">
+      <h1 id="本テストの成果-2">本テストの成果③</h1>
+      <ul>
+        <li>-epub-接頭辞なしでは「writing-mode プロパティ vertical-rl」をサポートできなかったリーダー
+          <ul>
+            <li>Kindle（Windows版のみ）</li>
+            <li>kobo（Mac版、Windows版）</li>
+            <li>超縦書</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  </body>
+</html>

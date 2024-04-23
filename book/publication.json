@@ -1,0 +1,23 @@
+{
+  "@context": [
+    "https://schema.org",
+    "https://www.w3.org/ns/pub-context"
+  ],
+  "type": "Book",
+  "conformsTo": "https://github.com/vivliostyle/vivliostyle-cli",
+  "name": "slide-2024-04-23jepa",
+  "author": "OGATA Katsuhiro <ogwata@vivliostyle.org>",
+  "inLanguage": "ja",
+  "dateModified": "2024-04-23T14:54:07.328Z",
+  "readingOrder": [
+    {
+      "url": "manuscript.html",
+      "name": "各社のEPUBリーダーは、現行CSS仕様やアクセシビリティをどれだけサポートしているのか？"
+    }
+  ],
+  "resources": [
+    "publication.json",
+    "themes/theme.css"
+  ],
+  "links": []
+}
